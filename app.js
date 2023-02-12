@@ -45,18 +45,19 @@ app.post("/compose", (req, res) => {
   };
   posts.push(post);
   res.redirect("/");
-
 });
 
-
-
-
-
-
-
-
-
-
+app.get("/posts/:topics", (req, res) => {
+const topic = req.params.topics;
+posts.forEach(function(post){
+  const storedTopic = post.title;
+if(storedTopic === topic) {
+  console.log("Match found!")
+}else {
+  console.log("Not a Match!")
+}
+});
+  });
 
 
 
